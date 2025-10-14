@@ -9,9 +9,9 @@ import java.util.Map;
 public class Main {
 
     public static void main(String[] args) throws InterruptedException {
-ReadWrite.ReaderCSV("transaction.csv");
- HomeScreen.showHomeScreen();
 
+ HomeScreen.showHomeScreen();
+Ledger.ShowFull();
 
     }
 }
