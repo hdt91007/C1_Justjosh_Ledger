@@ -20,46 +20,47 @@ public class HomeScreen {
         String choice = scanner.nextLine();
         boolean runtime = true;
 
-        while (runtime)
-        switch (choice){
-            case "D":
-                System.out.println("Y/N Do you want to use the current time/date ");
-                if (scanner.nextLine() == "Y") {
-                LocalDateTime DateTime = LocalDateTime.now();
-                    System.out.println();}
+        while (runtime == true) {
+            switch (choice) {
+                case "D":
+                    System.out.println("Y/N Do you want to use the current time/date ");
+                    String date = "";
+                    String time = null;
+                    if (scanner.nextLine() == "Y") {
+                        LocalDateTime DateTime = LocalDateTime.now();
+                        System.out.println();
+                    } else {
+                        System.out.println("please input the date of purchase");
+                        date = scanner.nextLine().trim();
+                        System.out.println("please input the time of purchase");
+                        time = scanner.nextLine().trim();
+                    }
 
-                else {
-                    System.out.println("please input the date of purchase");
-                    String date = scanner.nextLine().trim();
-                    System.out.println("please input the time of purchase");
-                    String time  = scanner.nextLine().trim();
-                }
+                    System.out.println("please input the description of the purchase");
+                    String description = scanner.nextLine().trim();
 
-                System.out.println("please input the description of the purchase");
-                String description  = scanner.nextLine().trim();
-
-                System.out.println("please input the vendor of purchase");
-                String vendor  = scanner.nextLine().trim();
-                System.out.println("please input the cost of the item/s");
-                String cost  = scanner.nextLine().trim();
+                    System.out.println("please input the vendor of purchase");
+                    String vendor = scanner.nextLine().trim();
+                    System.out.println("please input the cost of the item/s");
+                    String cost = scanner.nextLine().trim();
+                    String Entry = date + "|" + time + "|" + description + "|" + vendor + "|" + cost;
+                    System.out.println(Entry);
+                    runtime = false;
 
 
-            case "P":
-                System.out.println("please input your ");
+                case "P":
+                    System.out.println("please input your ");
 
-            case"L":
-                System.out.println(" Opening ledger " +
-                        "" +
-                        "" +
-                        "" +
-                        "" +
-                        "");
-            case"X":
+                case "L":
+                    System.out.println(" Opening ledger ");
 
-            default:
-                System.out.println("invalid oop and doop ");
-                runtime = false;
+                case "X":
 
+                default:
+                    System.out.println("invalid responce please ");
+                    runtime = false;
+
+            }
         }
 
 
