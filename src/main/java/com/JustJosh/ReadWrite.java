@@ -7,22 +7,20 @@ import java.util.ArrayList;
 public class ReadWrite {
 //    static ArrayList< > Entrys = new ArrayList;
 
-    public static void ReaderCSV() throws FileNotFoundException {
-       // URL resource = ReadWrite.class.getClassLoader().getResource(_filename);
-        BufferedReader resource = new BufferedReader(new FileReader("transactions.csv"));
-
+    public static void ReaderCSV(String _filename) {
+        URL resource = ReadWrite.class.getClassLoader().getResource(_filename);
         if (resource == null) {
             System.out.println("File not found!");
             return;
         }
-//        File file = new File(resource.getFile());
+        File file = new File(resource.getFile());
 
         try {
             BufferedReader Reader = new BufferedReader(new FileReader("transactions.csv"));
             String line;
             while ((line = Reader.readLine()) != null) {
-                String[] data = line.split("\\|");//String[] data = { "10","Dana Wyatt","52.50","12.50" }
-                System.out.println(line);
+                String[] data = line.split("\\|");    //String[] data = { "10","Dana Wyatt","52.50","12.50" }
+
                 String date = data[0];
                 String time = data[1];
                 String Description = data[2];
