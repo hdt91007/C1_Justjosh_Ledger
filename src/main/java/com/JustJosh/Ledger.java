@@ -2,6 +2,7 @@ package com.JustJosh;
 
 import java.io.*;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Scanner;
 
 public class Ledger {
@@ -9,9 +10,10 @@ public class Ledger {
 
     private static Scanner scanner = new Scanner(System.in);
 
-    public static void LedgerDisplay() throws InterruptedException {
+    public static void LedgerDisplay() throws InterruptedException, FileNotFoundException {
 
         System.out.println("Opening the ledger page");
+         List<Transaction> list = ReadWrite.ReaderCSV();
 
         boolean runtime = true;
         String date;
@@ -33,11 +35,9 @@ public class Ledger {
 
             switch (choice) {
                 case "A":
-                    try {
-                        ReadWrite.ReaderCSV();
-                    } catch (FileNotFoundException e) {
-                        throw new RuntimeException(e);
-                    }
+                        ReadWrite readWrite = new ReadWrite();
+                        readWrite.displayAll(list);
+
 
                     break;
                 case "D":

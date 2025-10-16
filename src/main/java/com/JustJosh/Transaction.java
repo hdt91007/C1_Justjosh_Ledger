@@ -2,17 +2,18 @@ package com.JustJosh;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 
 public class Transaction {
     //Time date and cost could be converted into different from strings.
-    LocalDate Date;
+    LocalDate date;
     LocalTime time;
     String description;
     String vendor;
     Double cost;
 
-    public Transaction(LocalDate date, String description, LocalTime time, String vendor, Double cost) {
-        Date = date;
+    public Transaction(LocalDate date, LocalTime time,String description , String vendor, Double cost) {
+        this.date = date;
         this.description = description;
         this.time = time;
         this.vendor = vendor;
@@ -20,11 +21,11 @@ public class Transaction {
     }
 
     public LocalDate getDate() {
-        return Date;
+        return date;
     }
 
     public void setDate(LocalDate date) {
-        Date = date;
+        this.date = date;
     }
 
     public LocalTime getTime() {
@@ -58,5 +59,9 @@ public class Transaction {
     public void setCost(Double cost) {
         this.cost = cost;
     }
-}
+    public String toString() {
+        return "\n" + date + "|" + time + "|" + description + "|" + vendor + "|" + cost ;
+    }
+
+        }
 

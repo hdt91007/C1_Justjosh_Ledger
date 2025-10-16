@@ -1,14 +1,14 @@
 package com.JustJosh;
 
 public class Data {
- String Date;
+ String date;
  String time;
  String description;
  String vendor;
  String cost;
 
     public Data(String date, String description, String cost, String vendor, String time) {
-        Date = date;
+        date = date;
         this.description = description;
         this.cost = cost;
         this.vendor = vendor;
@@ -17,11 +17,11 @@ public class Data {
     }
 
     public String getDate() {
-        return Date;
+        return date;
     }
 
     public void setDate(String date) {
-        Date = date;
+        this.date = date;
     }
 
     public String getTime() {
