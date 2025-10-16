@@ -1,10 +1,14 @@
 package com.JustJosh;
 
 import java.io.*;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ReadWrite {
  public static ArrayList<String> Entrys = new ArrayList<>();
+private List<Transaction>reader;
 
     public static void ReaderCSV() throws FileNotFoundException {
 
@@ -31,11 +35,11 @@ public class ReadWrite {
 //                Double Price = Double.parseDouble(data[4]);
 
                 Transaction t1 = new Transaction(data[0],data[1],data[2],data[3],data[4]);
-                t1.Date  = data[0].toString();
-                t1.time= data[1];
+                t1.Date  = LocalDate.parse(data[0]);
+                t1.time= LocalTime.parse(data[1]);
                 t1.description= data[2];
                 t1.vendor= data[3];
-                t1.cost= data[4];
+                t1.cost= Double.valueOf(data[4]);
 
 
                 allTransaction.add(t1);

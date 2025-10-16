@@ -1,33 +1,37 @@
 package com.JustJosh;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 public class Transaction {
-    String Date;
-    String time;
+    //Time date and cost could be converted into different from strings.
+    LocalDate Date;
+    LocalTime time;
     String description;
     String vendor;
-    String cost;
+    Double cost;
 
-    public Transaction(String date, String time, String description, String vendor, String cost) {
-        this.Date = date;
-        this.time = time;
+    public Transaction(LocalDate date, String description, LocalTime time, String vendor, Double cost) {
+        Date = date;
         this.description = description;
+        this.time = time;
         this.vendor = vendor;
         this.cost = cost;
     }
 
-    public String getDate() {
+    public LocalDate getDate() {
         return Date;
     }
 
-    public void setDate(String date) {
+    public void setDate(LocalDate date) {
         Date = date;
     }
 
-    public String getTime() {
+    public LocalTime getTime() {
         return time;
     }
 
-    public void setTime(String time) {
+    public void setTime(LocalTime time) {
         this.time = time;
     }
 
@@ -47,13 +51,12 @@ public class Transaction {
         this.vendor = vendor;
     }
 
-    public String getCost() {
+    public Double getCost() {
         return cost;
     }
 
-    public void setCost(String cost) {
+    public void setCost(Double cost) {
         this.cost = cost;
     }
 }
-
 
