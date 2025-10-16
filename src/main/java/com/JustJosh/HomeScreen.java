@@ -60,7 +60,7 @@ public class HomeScreen {
                     String Entry = date + "|" + time + "|" + description + "|" + vendor + "|" + cost;
                     System.out.println("Entry"+ Entry +" was added to ledger");
                     try {
-                        FileWriter New_Entry = new FileWriter("transaction.csv",true);
+                        FileWriter New_Entry = new FileWriter("transactions.csv",true);
                         New_Entry.write("\n"+Entry);
                         New_Entry.close();
                     } catch (IOException e) {
@@ -79,11 +79,13 @@ public class HomeScreen {
                     System.out.println("please input the vendor of purchase"); //d4
                      vendor = scanner.nextLine().trim();
                     System.out.println("please input the cost of the item/s"); //d5
-                     cost = scanner.nextLine().trim();
+                     cost = scanner.nextLine().trim().toString();
+
+                    cost = String.valueOf((Double.parseDouble(cost)*-1));
                      Entry = date + "|" + time + "|" + description + "|" + vendor + "|" + cost;
                     System.out.println("Entry"+ Entry +" was added to ledger");
                     try {
-                        FileWriter New_Entry = new FileWriter("transaction.csv",true);
+                        FileWriter New_Entry = new FileWriter("transactions.csv",true);
                         New_Entry.write("\n"+Entry);
                         New_Entry.close();
                     } catch (IOException e) {
