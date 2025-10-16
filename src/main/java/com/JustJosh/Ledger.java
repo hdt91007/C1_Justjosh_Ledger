@@ -41,11 +41,13 @@ public class Ledger {
 
                     break;
                 case "D":
-
+                    ReadWrite readWrite1 = new ReadWrite();
+                    readWrite1.displaydeposits(list);
 
 
                     break;
                 case "P":
+                    readWrite;
 
 
 

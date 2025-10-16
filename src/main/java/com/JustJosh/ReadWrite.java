@@ -11,7 +11,7 @@ public class ReadWrite {
     public static ArrayList<String> Entrys = new ArrayList<>();
     private List<Transaction> reader;
 
-    public static List<Transaction>ReaderCSV() throws FileNotFoundException {
+    public static List<Transaction> ReaderCSV() throws FileNotFoundException {
 
 
         BufferedReader resource = new BufferedReader(new FileReader("transactions.csv"));
@@ -30,7 +30,7 @@ public class ReadWrite {
 //                System.out.println(line);
                 LocalDate date = LocalDate.parse(data[0]);
                 LocalTime time = LocalTime.parse(data[1]);
-                 String description = data[2];
+                String description = data[2];
                 String vendor = data[3];
                 Double price = Double.parseDouble(data[4]);
 
@@ -40,11 +40,8 @@ public class ReadWrite {
 //                t1.description = data[2];
 //                t1.vendor = data[3];
 //                t1.cost = Double.valueOf(data[4]);
-                Transaction tv1 = new Transaction(date,time,description,vendor,price);
-            allTransaction.add(tv1);
-
-
-
+                Transaction tv1 = new Transaction(date, time, description, vendor, price);
+                allTransaction.add(tv1);
 
 
 //                Entrys Entry = new Entrys(date, time, Description, Vendor, Price);
@@ -75,6 +72,28 @@ public class ReadWrite {
 
         for (int i = 0; i < list.size(); i++) {
             System.out.println(list.get(i).toString());
+
+
         }
+    }
+
+    public void displaydeposits(List<Transaction> list) {
+
+        for (var i = list.size()-1 ; i > 0; i--) {
+
+
+                if (list.get(i).getCost() >= 0) {
+            System.out.println(list.get(i).toString());
+        }
+    }
+}
+
+    public void displaypayments (List<Transaction> list) {
+        for (var i = list.size()-1; i < 0; i--) {
+            if (list.get(i).getCost() < 0) {
+                System.out.println(list.get(i).toString());
+            }
+        }
+
     }
 }

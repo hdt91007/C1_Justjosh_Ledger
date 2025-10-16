@@ -8,7 +8,7 @@ public class Data {
  String cost;
 
     public Data(String date, String description, String cost, String vendor, String time) {
-        date = date;
+        this.date = date;
         this.description = description;
         this.cost = cost;
         this.vendor = vendor;

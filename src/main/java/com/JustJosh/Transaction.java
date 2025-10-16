@@ -11,7 +11,7 @@ public class Transaction {
     String description;
     String vendor;
     Double cost;
-
+//2025-10-15|12:05|Pears|josh|-12.32
     public Transaction(LocalDate date, LocalTime time,String description , String vendor, Double cost) {
         this.date = date;
         this.description = description;
