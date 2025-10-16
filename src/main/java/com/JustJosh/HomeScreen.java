@@ -58,14 +58,8 @@ public class HomeScreen {
                     System.out.println("please input amount depositing");
                     String cost = scanner.nextLine().trim();
                     String Entry = date + "|" + time + "|" + description + "|" + vendor + "|" + cost;
+                    ReadWrite.DataEntry(Entry);
                     System.out.println("Entry"+ Entry +" was added to ledger");
-                    try {
-                        FileWriter New_Entry = new FileWriter("transactions.csv",true);
-                        New_Entry.write("\n"+Entry);
-                        New_Entry.close();
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
                     break;
 
 
@@ -83,19 +77,11 @@ public class HomeScreen {
 
                     cost = String.valueOf((Double.parseDouble(cost)*-1));
                      Entry = date + "|" + time + "|" + description + "|" + vendor + "|" + cost;
+                    ReadWrite.DataEntry(Entry);
                     System.out.println("Entry"+ Entry +" was added to ledger");
-                    try {
-                        FileWriter New_Entry = new FileWriter("transactions.csv",true);
-                        New_Entry.write("\n"+Entry);
-                        New_Entry.close();
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
                     break;
                 case "L":
                     Ledger.LedgerDisplay();
-                    //code view ledger
-
                     break;
                 case "X":
                     System.out.println("Exiting the JJ Ledge machine");
