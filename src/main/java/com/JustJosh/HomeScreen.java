@@ -29,7 +29,7 @@ public class HomeScreen {
             System.out.println("X -  Exit");
             String choice = scanner.nextLine().toUpperCase().trim();
             String date;
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm a");
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm");
             String time;
             switch (choice) {
 
@@ -50,10 +50,12 @@ public class HomeScreen {
 
                     System.out.println("please input the description of the purchase");
                     String description = scanner.nextLine().trim();
+                    //consider using null values for some of the deposits or pre assignning
+
 
                     System.out.println("please input the vendor of purchase");
                     String vendor = scanner.nextLine().trim();
-                    System.out.println("please input the cost of the item/s");
+                    System.out.println("please input amount depositing");
                     String cost = scanner.nextLine().trim();
                     String Entry = date + "|" + time + "|" + description + "|" + vendor + "|" + cost;
                     System.out.println("Entry"+ Entry +" was added to ledger");
@@ -89,7 +91,7 @@ public class HomeScreen {
                     }
                     break;
                 case "L":
-                    System.out.println(" Opening ledger for viewing");
+                    Ledger.LedgerDisplay();
                     //code view ledger
 
                     break;
@@ -99,7 +101,7 @@ public class HomeScreen {
 
                     break;
                 default:
-                    System.out.println("invalid responce ");
+                    System.out.println("invalid responce");
                     break;
             }
         }

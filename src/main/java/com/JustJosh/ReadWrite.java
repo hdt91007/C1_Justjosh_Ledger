@@ -1,8 +1,6 @@
 package com.JustJosh;
 
 import java.io.*;
-import java.net.URL;
-import java.util.ArrayList;
 
 public class ReadWrite {
 //    static ArrayList< > Entrys = new ArrayList;
@@ -35,18 +33,21 @@ public class ReadWrite {
 //                ReaderCsV.add();
             }
 
-
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
     }
+public static void DataEntry(String Entry) {
+    try {
 
+        FileWriter New_Entry = new FileWriter("transaction.csv",true);
+        New_Entry.write("\n"+Entry);
+        New_Entry.close();
+    } catch (IOException e) {
+        throw new RuntimeException(e);
+    }
 
 }
 
-
-
-// for (int i = 0; i < ; i++) { }
+}

@@ -1,27 +1,92 @@
 package com.JustJosh;
 
 import java.io.*;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
 
 public class Ledger {
-    public static void ShowFull() {
 
 
-        try {
-            BufferedReader Reader = new BufferedReader(new FileReader("transactions.csv"));
-            String line;
-            while ((line = Reader.readLine()) != null) {
-                String[] data = line.split("\\|");//String[] data = { "10","Dana Wyatt","52.50","12.50" }
-                System.out.println(line);
-                String date = data[0];
-                String time = data[1];
-                String Description = data[2];
-                String Vendor = data[3];
-                Double Price = Double.parseDouble(data[4]);
+    private static Scanner scanner = new Scanner(System.in);
+
+    public static void LedgerDisplay() throws InterruptedException {
+
+        System.out.println("Opening the ledger page");
+
+        boolean runtime = true;
+        String date;
+        String time;
+
+        while (runtime) {
+
+            Thread.sleep(1000);
+            System.out.println("PLease input a character if you would like to");
+            System.out.println("A - Display all entries");
+            System.out.println("D - Display deposits");
+            System.out.println("P - Display payments ");
+            System.out.println("R - Look for specific information ");
+
+            System.out.println("X -  Exit");
+
+            String choice = scanner.nextLine().toUpperCase().trim();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm");
+
+            switch (choice) {
+                case "A":
+                    try {
+                        ReadWrite.ReaderCSV();
+                    } catch (FileNotFoundException e) {
+                        throw new RuntimeException(e);
+                    }
+
+                    break;
+                case "D":
+
+
+
+                    break;
+                case "P":
+
+
+
+                    break;
+
+
+                case "R":
+
+
+                    break;
+                case "X":
+                runtime=false;
+
+                    break;
             }
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+//Ledger - All entries should show the newest entries first
+
+// A) All - Display all entries
+// D) Deposits - Display only the entries that are deposits into the account
+// P) Payments - Display only  payments)
+// R) Reports - A new screen that allows the user to run pre-defined
+//reports or to run a custom search
+
+            }
+//            try {
+//                    BufferedReader Reader = new BufferedReader(new FileReader("transactions.csv"));
+//                    String line;
+//                    while ((line = Reader.readLine()) != null) {
+//                        String[] data = line.split("\\|");//String[] data = { "10","Dana Wyatt","52.50","12.50" }
+//                        System.out.println(line);
+//                        date = data[0];
+//                         time = data[1];
+//                        String Description = data[2];
+//                        String Vendor = data[3];
+//                        Double Price = Double.parseDouble(data[4]);
+//                    }
+//                } catch (FileNotFoundException e) {
+//                    throw new RuntimeException(e);
+//                } catch (IOException e) {
+//                    throw new RuntimeException(e);
+                }
+
+            }
         }
-    }
-}
