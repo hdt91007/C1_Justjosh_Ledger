@@ -24,7 +24,7 @@ public class HomeScreen {
             Thread.sleep(1000);
             System.out.println("PLease input a character if you would like to");
             System.out.println("D - Add Deposit");
-            System.out.println("P - Make Payment Debit - Add Deposit");
+            System.out.println("P - Make Payment Debit ");
             System.out.println("L -  Ledger");
             System.out.println("X -  Exit");
             String choice = scanner.nextLine().toUpperCase().trim();
@@ -48,12 +48,12 @@ public class HomeScreen {
                         time = scanner.nextLine().trim();
                     }
 
-                    System.out.println("please input the description of the purchase");
+                    System.out.println("please input what the deposit is for");
                     String description = scanner.nextLine().trim();
                     //consider using null values for some of the deposits or pre assignning
 
 
-                    System.out.println("please input the vendor of purchase");
+                    System.out.println("please input from whom the deposit is from");
                     String vendor = scanner.nextLine().trim();
                     System.out.println("please input amount depositing");
                     String cost = scanner.nextLine().trim();

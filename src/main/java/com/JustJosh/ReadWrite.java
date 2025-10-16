@@ -1,12 +1,14 @@
 package com.JustJosh;
 
 import java.io.*;
+import java.util.ArrayList;
 
 public class ReadWrite {
-//    static ArrayList< > Entrys = new ArrayList;
+ ArrayList<String> Entrys = new ArrayList<String>();
 
     public static void ReaderCSV() throws FileNotFoundException {
-       // URL resource = ReadWrite.class.getClassLoader().getResource(_filename);
+
+
         BufferedReader resource = new BufferedReader(new FileReader("transactions.csv"));
 
         if (resource == null) {
@@ -26,6 +28,7 @@ public class ReadWrite {
                 String Description = data[2];
                 String Vendor = data[3];
                 Double Price = Double.parseDouble(data[4]);
+                System.out.println(data[0]+data[1]+data[2]+data[3]+data[4]);
 
 
 //                Entrys Entry = new Entrys(date, time, Description, Vendor, Price);
@@ -41,13 +44,12 @@ public class ReadWrite {
 public static void DataEntry(String Entry) {
     try {
 
-        FileWriter New_Entry = new FileWriter("transaction.csv",true);
+        FileWriter New_Entry = new FileWriter("transactions.csv",true);
         New_Entry.write("\n"+Entry);
         New_Entry.close();
     } catch (IOException e) {
         throw new RuntimeException(e);
     }
-
 }
 
 }

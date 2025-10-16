@@ -1,13 +1,29 @@
 package com.JustJosh;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Collections;
 
-public class Testing {}
+public class Testing {
+
+public static void main(String[] args) {
+
+    ArrayList<String> Entrys = new ArrayList<String>();
+    try {
+        ReadWrite.ReaderCSV();
+
+        Collections.sort();
+
+    } catch (FileNotFoundException e) {
+        throw new RuntimeException(e);
+    }
+
+
+}
+}
 //                        try {
 //        File myFile = new File(".csv");
 //        FileWriter myWriter = new FileWriter(myFile,true);
