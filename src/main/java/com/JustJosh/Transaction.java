@@ -1,19 +1,18 @@
 package com.JustJosh;
 
-public class Data {
- String Date;
- String time;
- String description;
- String vendor;
- String cost;
+public class Transaction {
+    String Date;
+    String time;
+    String description;
+    String vendor;
+    String cost;
 
-    public Data(String date, String description, String cost, String vendor, String time) {
-        Date = date;
-        this.description = description;
-        this.cost = cost;
-        this.vendor = vendor;
+    public Transaction(String date, String time, String description, String vendor, String cost) {
+        this.Date = date;
         this.time = time;
-
+        this.description = description;
+        this.vendor = vendor;
+        this.cost = cost;
     }
 
     public String getDate() {
@@ -55,8 +54,6 @@ public class Data {
     public void setCost(String cost) {
         this.cost = cost;
     }
-
-
-
-
 }
+
+

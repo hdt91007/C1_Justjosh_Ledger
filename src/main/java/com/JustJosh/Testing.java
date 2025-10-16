@@ -15,7 +15,7 @@ public static void main(String[] args) {
     try {
         ReadWrite.ReaderCSV();
 
-        Collections.sort();
+//        Collections.sort();
 
     } catch (FileNotFoundException e) {
         throw new RuntimeException(e);

@@ -25,8 +25,8 @@ public class HomeScreen {
             System.out.println("PLease input a character if you would like to");
             System.out.println("D - Add Deposit");
             System.out.println("P - Make Payment Debit ");
-            System.out.println("L -  Ledger");
-            System.out.println("X -  Exit");
+            System.out.println("L - Ledger");
+            System.out.println("X - Exit");
             String choice = scanner.nextLine().toUpperCase().trim();
             String date;
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm");
@@ -59,7 +59,7 @@ public class HomeScreen {
                     String cost = scanner.nextLine().trim();
                     String Entry = date + "|" + time + "|" + description + "|" + vendor + "|" + cost;
                     ReadWrite.DataEntry(Entry);
-                    System.out.println("Entry"+ Entry +" was added to ledger");
+                    System.out.println("Entry "+ Entry +" was added to ledger");
                     break;
 
 
@@ -78,7 +78,7 @@ public class HomeScreen {
                     cost = String.valueOf((Double.parseDouble(cost)*-1));
                      Entry = date + "|" + time + "|" + description + "|" + vendor + "|" + cost;
                     ReadWrite.DataEntry(Entry);
-                    System.out.println("Entry"+ Entry +" was added to ledger");
+                    System.out.println("Entry "+ Entry +" was added to ledger");
                     break;
                 case "L":
                     Ledger.LedgerDisplay();
