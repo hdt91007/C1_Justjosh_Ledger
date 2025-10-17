@@ -4,6 +4,7 @@ import javax.lang.model.element.VariableElement;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -11,9 +12,9 @@ import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class HomeScreen {
-
     public static void showHomeScreen() throws InterruptedException, IOException {
         Scanner scanner = new Scanner(System.in);
+        DecimalFormat df = new DecimalFormat("0.00");
 
         System.out.println("Welcome to the JustJosh's LLC Ledger");
 
@@ -31,7 +32,6 @@ public class HomeScreen {
                             PLease input a character if you would like to
                                         D - Add Deposit
                                         P - Make Payment Debit
-                                        Q - Input quick entry
                                         L - Ledger
                                         X - Exit
                             
@@ -58,15 +58,16 @@ public class HomeScreen {
                         while(Valid) {
                             if (scanner.hasNextDouble()) {
                                 cost = scanner.nextDouble();
+
                                 break;
                             } else {
                                 System.out.println("invalid response. please input a number");
                                 scanner.nextLine();
                             }
                         }
+                    String stringcost = df.format(cost);
 
-
-                        String Entry = date + "|" + time + "|" + description + "|" + vendor + "|" + cost;
+                        String Entry = date + "|" + time + "|" + description + "|" + vendor + "|" + stringcost;
                         ReadWrite.DataEntry(Entry);
                         System.out.println("Entry " + Entry + " was added to ledger");
                         break;
@@ -86,7 +87,7 @@ public class HomeScreen {
                     System.out.println("please input the cost of the item/s"); //d5
                     while(Valid) {
                         if (scanner.hasNextDouble()) {
-                            cost = Double.valueOf(scanner.nextLine().trim());
+                            cost = scanner.nextDouble();
                             break;
                         } else {
                             System.out.println("invalid response. please input a number");
@@ -95,7 +96,8 @@ public class HomeScreen {
                     }
 
                     cost = Double.valueOf(cost*-1);
-                     Entry = date + "|" + time + "|" + description + "|" + vendor + "|" + cost;
+                     stringcost = df.format(cost);
+                    Entry = date + "|" + time + "|" + description + "|" + vendor + "|" + stringcost;
                     ReadWrite.DataEntry(Entry);
                     System.out.println("Entry"+ Entry +" was added to ledger");
                     break;

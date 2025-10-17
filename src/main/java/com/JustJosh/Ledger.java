@@ -30,7 +30,7 @@ public class Ledger {
 
             System.out.println("        X -  Exit");
 
-            String choice = scanner.nextLine().toUpperCase().trim();
+            String choice = Ledger.scanner.nextLine().toUpperCase().trim();
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm");
             ReadWrite readWrite = new ReadWrite();
 
@@ -61,6 +61,10 @@ public class Ledger {
                     Thread.sleep(1000);
                     System.out.println("Returning to Homescreen");
                     break;
+                default:
+                    System.out.println("invalid responce");
+                    break;
+
             }
 
 
