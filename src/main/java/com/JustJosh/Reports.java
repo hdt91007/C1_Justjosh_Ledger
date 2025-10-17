@@ -54,19 +54,26 @@ public class Reports {
                     break;
                 case "2":
                     System.out.println("Displaying Previous Month");
-
+                        ReadWrite.displayPreviousMonth(ReadWrite.getTransactionsFromCsv());
                     break;
                 case "3":
                     System.out.println("Displaying Year to Date");
+                    ReadWrite.displayYeartoDate(ReadWrite.getTransactionsFromCsv());
+
                     break;
                 case "4":
                     System.out.println("Displaying Previous Year");
+                    ReadWrite.displayPreviousYear(ReadWrite.getTransactionsFromCsv());
+
                     break;
                 case "5":
                     System.out.println("Which Vendor would you like to search by?");
+                    ReadWrite.displaySpecificvendor(ReadWrite.getTransactionsFromCsv(),scanner.nextLine());
                     break;
                 case "X":
+
                     System.out.println("Returning to Ledger");
+                    runtime = false;
                     break;
 
 

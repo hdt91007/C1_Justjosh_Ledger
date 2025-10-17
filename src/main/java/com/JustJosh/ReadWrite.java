@@ -3,6 +3,7 @@ package com.JustJosh;
 import java.io.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -95,11 +96,25 @@ public class ReadWrite {
             }
         }
     }
-    public static void displayYeartoDate(List<Transaction> list) {
-        LocalDate firstMonth = LocalDate.now().withDayOfMonth(1);
+    public static void displayPreviousMonth(List<Transaction> list) {
+      LocalDate firstofLastMonth = LocalDate.now().minusMonths(1).withDayOfMonth(1);
+        LocalDate lastofLastMonth = LocalDate.now().minusMonths(1).withDayOfMonth(30);
 
         for (var i = list.size() - 1; i > 0; i--) {
-            if (list.get(i).getDate().isBefore(LocalDate.now()) && (list.get(i).getDate().isAfter(firstMonth))) {
+            if (list.get(i).getDate().isBefore(lastofLastMonth) && (list.get(i).getDate().isAfter(firstofLastMonth))) {
+
+                System.out.println(list.get(i).toString());
+
+            }
+        }
+    }
+
+    public static void displayYeartoDate(List<Transaction> list) {
+        LocalDate Lastyear = LocalDate.now().minusYears(1);
+
+
+        for (var i = list.size() - 1; i > 0; i--) {
+            if (list.get(i).getDate().isBefore(LocalDate.now()) && (list.get(i).getDate().isAfter(Lastyear))) {
 
                 System.out.println(list.get(i).toString());
 
@@ -107,21 +122,21 @@ public class ReadWrite {
         }
     }
     public static void displayPreviousYear(List<Transaction> list) {
-        LocalDate firstMonth = LocalDate.now().withDayOfMonth(1);
+        LocalDate Lastdayoflastyear = LocalDate.now().minusYears(1).withDayOfYear(365);
+        LocalDate Firstdayoflastyear = LocalDate.now().minusYears(1).withDayOfYear(1);
 
         for (var i = list.size() - 1; i > 0; i--) {
-            if (list.get(i).getDate().isBefore(LocalDate.now()) && (list.get(i).getDate().isAfter(firstMonth))) {
+            if (list.get(i).getDate().isBefore(Lastdayoflastyear) && (list.get(i).getDate().isAfter(Firstdayoflastyear))) {
 
                 System.out.println(list.get(i).toString());
 
             }
         }
     }
-    public static void displaySpecificvendor(List<Transaction> list) {
-        LocalDate firstMonth = LocalDate.now().withDayOfMonth(1);
+    public static void displaySpecificvendor (List<Transaction> list,String vendor) {
 
         for (var i = list.size() - 1; i > 0; i--) {
-            if (list.get(i).getDate().isBefore(LocalDate.now()) && (list.get(i).getDate().isAfter(firstMonth))) {
+            if (list.get(i).getVendor().equals(vendor)) {
 
                 System.out.println(list.get(i).toString());
 
