@@ -59,8 +59,11 @@ public class ReadWrite {
     public void displayAll(List<Transaction> list) {
 
         for (int i = 0; i < list.size(); i++) {
-            System.out.println(list.get(i).toString());
-
+            System.out.println("Date - "+list.get(i).getDate().toString());
+            System.out.println("Time - "+list.get(i).getTime().toString());
+            System.out.println("Description - "+list.get(i).getDescription().toString());
+            System.out.println("Vendor - "+list.get(i).getVendor().toString());
+            System.out.println("Amount - "+list.get(i).getCost().toString()+"\n");
 
         }
     }
@@ -69,8 +72,11 @@ public class ReadWrite {
 
         for (var i = list.size() - 1; i > 0; i--) {
             if (list.get(i).getCost() >= 0) {
-                System.out.println(list.get(i).toString());
-            }
+                System.out.println("Date - "+list.get(i).getDate().toString());
+                System.out.println("Time - "+list.get(i).getTime().toString());
+                System.out.println("Description - "+list.get(i).getDescription().toString());
+                System.out.println("Vendor - "+list.get(i).getVendor().toString());
+                System.out.println("Amount - "+list.get(i).getCost().toString()+"\n");            }
         }
     }
 
@@ -78,8 +84,11 @@ public class ReadWrite {
         for (var i = list.size() - 1; i > 0; i--) {
             if (list.get(i).getCost() <= 0) {
 
-                System.out.println(list.get(i).toString());
-
+                System.out.println("Date - "+list.get(i).getDate().toString());
+                System.out.println("Time - "+list.get(i).getTime().toString());
+                System.out.println("Description - "+list.get(i).getDescription().toString());
+                System.out.println("Vendor - "+list.get(i).getVendor().toString());
+                System.out.println("Amount - "+list.get(i).getCost().toString()+"\n");
             }
 
         }
@@ -90,8 +99,11 @@ public class ReadWrite {
         for (var i = list.size() - 1; i > 0; i--) {
             if (list.get(i).getDate().isBefore(LocalDate.now()) && (list.get(i).getDate().isAfter(firstMonth))) {
 
-                System.out.println(list.get(i).toString());
-
+                System.out.println("Date - "+list.get(i).getDate().toString());
+                System.out.println("Time - "+list.get(i).getTime().toString());
+                System.out.println("Description - "+list.get(i).getDescription().toString());
+                System.out.println("Vendor - "+list.get(i).getVendor().toString());
+                System.out.println("Amount - "+list.get(i).getCost().toString()+"\n");
             }
         }
     }
@@ -102,8 +114,11 @@ public class ReadWrite {
         for (var i = list.size() - 1; i > 0; i--) {
             if (list.get(i).getDate().isBefore(lastofLastMonth) && (list.get(i).getDate().isAfter(firstofLastMonth))) {
 
-                System.out.println(list.get(i).toString());
-
+                System.out.println("Date - "+list.get(i).getDate().toString());
+                System.out.println("Time - "+list.get(i).getTime().toString());
+                System.out.println("Description - "+list.get(i).getDescription().toString());
+                System.out.println("Vendor - "+list.get(i).getVendor().toString());
+                System.out.println("Amount - "+list.get(i).getCost().toString()+"\n");
             }
         }
     }
@@ -115,8 +130,11 @@ public class ReadWrite {
         for (var i = list.size() - 1; i > 0; i--) {
             if (list.get(i).getDate().isBefore(LocalDate.now()) && (list.get(i).getDate().isAfter(Lastyear))) {
 
-                System.out.println(list.get(i).toString());
-
+                System.out.println("Date - "+list.get(i).getDate().toString());
+                System.out.println("Time - "+list.get(i).getTime().toString());
+                System.out.println("Description - "+list.get(i).getDescription().toString());
+                System.out.println("Vendor - "+list.get(i).getVendor().toString());
+                System.out.println("Amount - "+list.get(i).getCost().toString()+"\n");
             }
         }
     }
@@ -127,8 +145,11 @@ public class ReadWrite {
         for (var i = list.size() - 1; i > 0; i--) {
             if (list.get(i).getDate().isBefore(Lastdayoflastyear) && (list.get(i).getDate().isAfter(Firstdayoflastyear))) {
 
-                System.out.println(list.get(i).toString());
-
+                System.out.println("Date - "+list.get(i).getDate().toString());
+                System.out.println("Time - "+list.get(i).getTime().toString());
+                System.out.println("Description - "+list.get(i).getDescription().toString());
+                System.out.println("Vendor - "+list.get(i).getVendor().toString());
+                System.out.println("Amount - "+list.get(i).getCost().toString()+"\n");
             }
         }
     }
@@ -137,7 +158,12 @@ public class ReadWrite {
         for (var i = list.size() - 1; i > 0; i--) {
             if (list.get(i).getVendor().equals(vendor)) {
 
-                System.out.println(list.get(i).toString());
+                System.out.println("Date - "+list.get(i).getDate().toString());
+                System.out.println("Time - "+list.get(i).getTime().toString());
+                System.out.println("Description - "+list.get(i).getDescription().toString());
+                System.out.println("Vendor - "+list.get(i).getVendor().toString());
+                System.out.println("Amount - "+list.get(i).getCost().toString()+"\n");
+
 
             }
         }
