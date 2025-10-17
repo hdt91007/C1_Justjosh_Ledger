@@ -30,10 +30,10 @@ public class HomeScreen {
             Thread.sleep(1000);
             System.out.println("""
                             PLease input a character if you would like to
-                                        D - Add Deposit
-                                        P - Make Payment Debit
-                                        L - Ledger
-                                        X - Exit
+                                    D - Add Deposit
+                                    P - Make Payment Debit
+                                    L - Ledger
+                                    X - Exit
                             
                             """);
 
@@ -111,7 +111,7 @@ public class HomeScreen {
 
                     break;
                 default:
-                    System.out.println("invalid responce");
+                    System.out.println("invalid response");
                     break;
             }
         }

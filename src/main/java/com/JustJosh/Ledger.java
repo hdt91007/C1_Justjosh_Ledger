@@ -62,7 +62,7 @@ public class Ledger {
                     System.out.println("Returning to Homescreen");
                     break;
                 default:
-                    System.out.println("invalid responce");
+                    System.out.println("invalid response");
                     break;
 
             }
