@@ -27,5 +27,5 @@ the JJ Ledger is a  transaction management system focused on reading user input 
 <img width="951" height="604" alt="image" src="https://github.com/user-attachments/assets/977d6d9a-bd8e-43b5-9e04-2f1738f46cbd" />
 
 ### Csv Extraction
-<img width="1207" height="1078" alt="image" src="https://github.com/user-attachments/assets/d51dd909-1551-4c04-b646-8ad717b9e064" />
+<img width="1207" height="1049" alt="image" src="https://github.com/user-attachments/assets/bd37e71f-801d-4d72-87da-294968b8fd4b" />
 
