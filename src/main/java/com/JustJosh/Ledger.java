@@ -12,7 +12,7 @@ public class Ledger {
 
     public static void LedgerDisplay() throws InterruptedException, FileNotFoundException {
 
-        System.out.println("Opening the ledger page");
+        System.out.println("Opening the ledger page"+"\n");
         List<Transaction> list = ReadWrite.getTransactionsFromCsv();
 
         boolean runtime = true;
@@ -59,7 +59,7 @@ public class Ledger {
                 case "X":
                     runtime = false;
                     Thread.sleep(1000);
-                    System.out.println("Returning to Homescreen");
+                    System.out.println("Returning to Homescreen"+"\n");
                     break;
                 default:
                     System.out.println("invalid response");

@@ -34,8 +34,8 @@ public class Reports {
         boolean runtime = true;
     Scanner scanner = new Scanner(System.in);
         while (runtime) {
+            System.out.println("Opening Reports"+"\n");
             Thread.sleep(1000);
-            System.out.println("Opening Reports");
             System.out.println("Please input one of the following character if you would like to Display");
             System.out.println("        1 - Month to Date");
             System.out.println("        2 - Previous Month");
@@ -72,7 +72,7 @@ public class Reports {
                     break;
                 case "X":
 
-                    System.out.println("Returning to Ledger");
+                    System.out.println("Returning to Ledger"+"\n");
                     Thread.sleep(1000);
                     runtime = false;
                     break;

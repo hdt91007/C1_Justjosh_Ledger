@@ -106,7 +106,7 @@ public class HomeScreen {
                     Ledger.LedgerDisplay();
                     break;
                 case "X":
-                    System.out.println("Exiting the JJ Ledge machine");
+                    System.out.println("Exiting the JJ Ledge machine"+"\n");
                     runtime = false;
 
                     break;
