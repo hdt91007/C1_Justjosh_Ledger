@@ -5,56 +5,41 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class ReadWrite {
-    public static ArrayList<String> Entrys = new ArrayList<>();
-    private List<Transaction> reader;
 
-    public static List<Transaction> ReaderCSV() throws FileNotFoundException {
+    public static List<Transaction> getTransactionsFromCsv() throws FileNotFoundException {
 
-
-        BufferedReader resource = new BufferedReader(new FileReader("transactions.csv"));
         ArrayList<Transaction> allTransaction = new ArrayList<>();
-
-        if (resource == null) {
-            System.out.println("File not found!");
-        }
-//        File file = new File(resource.getFile());
-
+        //arrayList for later
         try {
             BufferedReader Reader = new BufferedReader(new FileReader("transactions.csv"));
             String line;
             while ((line = Reader.readLine()) != null) {
-                Transaction data1 = getTransaction(line);
-                allTransaction.add(data1);
-
-
+                Transaction data = getTransaction(line);
+                allTransaction.add(data);
             }
-
+            //taking each line from buffered reader and converting to Transaction object
+            //Then adding every line back into ArrayList allTransactions
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
         return allTransaction;
+        //returning all Values
     }
 
-    private static Transaction getTransaction(String line) {
-        String[] data = line.split("\\|");//String[] data = { "10","Dana Wyatt","52.50","12.50" }
-//                System.out.println(line);
+    public static Transaction getTransaction(String line) {
+        String[] data = line.split("\\|");
+//   converting the CsvEntry into an array of Date,Time,Description,Vendor,and Price
         LocalDate date = LocalDate.parse(data[0]);
         LocalTime time = LocalTime.parse(data[1]);
         String description = data[2];
         String vendor = data[3];
         Double price = Double.parseDouble(data[4]);
+//Parse the data to correct type
+        Transaction Return_Line = new Transaction(date, time, description, vendor, price);
+        return Return_Line;
 
-//                Transaction t1 = null;
-//                t1.date = LocalDate.parse(data[0]);
-//                t1.time = LocalTime.parse(data[1]);
-//                t1.description = data[2];
-//                t1.vendor = data[3];
-//                t1.cost = Double.valueOf(data[4]);
-        Transaction tv1 = new Transaction(date, time, description, vendor, price);
-        return tv1;
     }
 
     public static void DataEntry(String Entry) {
@@ -63,6 +48,7 @@ public class ReadWrite {
             FileWriter New_Entry = new FileWriter("transactions.csv", true);
             New_Entry.write("\n" + Entry);
             New_Entry.close();
+            //takes input and inputs into csv
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -98,4 +84,48 @@ public class ReadWrite {
 
         }
     }
-}
+    public static void displayMonthtoDate(List<Transaction> list) {
+        LocalDate firstMonth = LocalDate.now().withDayOfMonth(1);
+
+        for (var i = list.size() - 1; i > 0; i--) {
+            if (list.get(i).getDate().isBefore(LocalDate.now()) && (list.get(i).getDate().isAfter(firstMonth))) {
+
+                System.out.println(list.get(i).toString());
+
+            }
+        }
+    }
+    public static void displayYeartoDate(List<Transaction> list) {
+        LocalDate firstMonth = LocalDate.now().withDayOfMonth(1);
+
+        for (var i = list.size() - 1; i > 0; i--) {
+            if (list.get(i).getDate().isBefore(LocalDate.now()) && (list.get(i).getDate().isAfter(firstMonth))) {
+
+                System.out.println(list.get(i).toString());
+
+            }
+        }
+    }
+    public static void displayPreviousYear(List<Transaction> list) {
+        LocalDate firstMonth = LocalDate.now().withDayOfMonth(1);
+
+        for (var i = list.size() - 1; i > 0; i--) {
+            if (list.get(i).getDate().isBefore(LocalDate.now()) && (list.get(i).getDate().isAfter(firstMonth))) {
+
+                System.out.println(list.get(i).toString());
+
+            }
+        }
+    }
+    public static void displaySpecificvendor(List<Transaction> list) {
+        LocalDate firstMonth = LocalDate.now().withDayOfMonth(1);
+
+        for (var i = list.size() - 1; i > 0; i--) {
+            if (list.get(i).getDate().isBefore(LocalDate.now()) && (list.get(i).getDate().isAfter(firstMonth))) {
+
+                System.out.println(list.get(i).toString());
+
+            }
+        }
+    }
+    }

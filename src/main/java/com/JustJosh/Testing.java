@@ -9,20 +9,24 @@ import java.util.Collections;
 
 public class Testing {
 
-public static void main(String[] args) {
+public static void main(String[] args) throws FileNotFoundException, InterruptedException {
 
-    ArrayList<String> Entrys = new ArrayList<String>();
-    try {
-        ReadWrite.ReaderCSV();
 
-//        Collections.sort();
 
-    } catch (FileNotFoundException e) {
-        throw new RuntimeException(e);
+
+
+
+//    ArrayList<String> Entrys = new ArrayList<String>();
+//    try {
+//        ReadWrite.ReaderCSV();
+//
+////        Collections.sort();
+//
+//    } catch (FileNotFoundException e) {
+//        throw new RuntimeException(e);
     }
 
 
-}
 }
 //                        try {
 //        File myFile = new File(".csv");
@@ -117,3 +121,11 @@ public static void main(String[] args) {
 //                ReaderCsV.add();
 //                        System.out.println("Y/N Do you want to use the current time/date ");
 //                        if (scanner.nextLine().equalsIgnoreCase("Y")) {
+
+
+//                Transaction t1 = null;
+//                t1.date = LocalDate.parse(data[0]);
+//                t1.time = LocalTime.parse(data[1]);
+//                t1.description = data[2];
+//                t1.vendor = data[3];
+//                t1.cost = Double.valueOf(data[4]);

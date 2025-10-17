@@ -5,7 +5,6 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class Transaction {
-    //Time date and cost could be converted into different from strings.
     LocalDate date;
     LocalTime time;
     String description;

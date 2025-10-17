@@ -13,7 +13,7 @@ public class Ledger {
     public static void LedgerDisplay() throws InterruptedException, FileNotFoundException {
 
         System.out.println("Opening the ledger page");
-        List<Transaction> list = ReadWrite.ReaderCSV();
+        List<Transaction> list = ReadWrite.getTransactionsFromCsv();
 
         boolean runtime = true;
         String date;
@@ -53,7 +53,7 @@ public class Ledger {
 
 
                 case "R":
-
+                    Reports.ReportsDisplay();
 
                     break;
                 case "X":
