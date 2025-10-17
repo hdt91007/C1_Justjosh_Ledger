@@ -58,7 +58,7 @@ public class Transaction {
     }
     public String toString() {
         return "\n" + date + "|" + time + "|" + description + "|" + vendor + "|" + cost ;
+
     }
 
         }
-
