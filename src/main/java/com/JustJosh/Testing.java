@@ -76,3 +76,44 @@ public static void main(String[] args) {
 //
 ////
 //}
+// R) Reports - A new screen that allows the user to run pre-defined
+//reports or to run a custom search
+
+
+//            try {
+//                    BufferedReader Reader = new BufferedReader(new FileReader("transactions.csv"));
+//                    String line;
+//                    while ((line = Reader.readLine()) != null) {
+//                        String[] data = line.split("\\|");//String[] data = { "10","Dana Wyatt","52.50","12.50" }
+//                        System.out.println(line);
+//                        date = data[0];
+//                         time = data[1];
+//                        String Description = data[2];
+//                        String Vendor = data[3];
+//                        Double Price = Double.parseDouble(data[4]);
+//                    }
+//                } catch (FileNotFoundException e) {
+//                    throw new RuntimeException(e);
+//                } catch (IOException e) {
+//                    throw new RuntimeException(e);
+
+
+//                    If want to input based on user
+//                    else {
+//                        System.out.println("please input the date of purchase");
+//                        date = scanner.nextLine().trim();
+//                        System.out.println("please input the time of purchase");
+//                        time = scanner.nextLine().trim();
+
+
+//      while (cost instanceof Double){
+//        }
+//        else {
+//        System.out.println("invalid responce");
+
+
+//                Entrys Entry = new Entrys(date, time, Description, Vendor, Price);
+//                System.out.println(Entry.toString());
+//                ReaderCsV.add();
+//                        System.out.println("Y/N Do you want to use the current time/date ");
+//                        if (scanner.nextLine().equalsIgnoreCase("Y")) {

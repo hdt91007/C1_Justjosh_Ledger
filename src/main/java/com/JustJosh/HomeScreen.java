@@ -1,5 +1,6 @@
 package com.JustJosh;
 
+import javax.lang.model.element.VariableElement;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.DateFormat;
@@ -14,11 +15,15 @@ public class HomeScreen {
     public static void showHomeScreen() throws InterruptedException, IOException {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Welcome to the JJ's LLC Ledger");
+        System.out.println("Welcome to the JustJosh's LLC Ledger");
 
 
-//date|time|description|vendor|amount
         boolean runtime = true;
+        LocalDate date = null;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm");
+        LocalTime time = null;
+        Double cost = 0.0;
+        boolean Valid = true;
 
         while (runtime) {
             Thread.sleep(1000);
@@ -27,41 +32,38 @@ public class HomeScreen {
             System.out.println("P - Make Payment Debit ");
             System.out.println("L - Ledger");
             System.out.println("X - Exit");
+
             String choice = scanner.nextLine().toUpperCase().trim();
-            LocalDate date = null;
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm");
-            LocalTime time = null;
+
             switch (choice) {
 
                 case "D":
 
-                    System.out.println("Y/N Do you want to use the current time/date ");
-                    if (scanner.nextLine().equalsIgnoreCase("Y")) {
-                        date = LocalDate.now();
-                        time = LocalTime.parse(LocalTime.now().format(formatter));
-                        System.out.println(date +"|"+ time);}
+                     date = LocalDate.now();
+                     time = LocalTime.parse(LocalTime.now().format(formatter));
+                        System.out.println(date + "|" + time);
 
-//                    If want to input based on user
-//                    else {
-//                        System.out.println("please input the date of purchase");
-//                        date = scanner.nextLine().trim();
-//                        System.out.println("please input the time of purchase");
-//                        time = scanner.nextLine().trim();
+                        System.out.println("please input what the deposit is for");
+                        String description = scanner.nextLine().trim();
+                        //consider using null values for some of the deposits or pre assignning
 
 
-                    System.out.println("please input what the deposit is for");
-                    String description = scanner.nextLine().trim();
-                    //consider using null values for some of the deposits or pre assignning
-
-
-                    System.out.println("please input from whom the deposit is from");
-                    String vendor = scanner.nextLine().trim();
-                    System.out.println("please input amount depositing");
-                    Double cost = scanner.nextDouble();
-                    String Entry = date+ "|" + time + "|" + description + "|" + vendor + "|" + cost;
-                    ReadWrite.DataEntry(Entry);
-                    System.out.println("Entry "+ Entry +" was added to ledger");
-                    break;
+                        System.out.println("please input from whom the deposit is from");
+                        String vendor = scanner.nextLine().trim();
+                        System.out.println("please input amount depositing");
+                        while(Valid) {
+                            if (scanner.hasNextDouble()) {
+                                cost = scanner.nextDouble();
+                                break;
+                            } else {
+                                System.out.println("invalid response. please input a number");
+                                scanner.nextLine();
+                            }
+                        }
+                        String Entry = date + "|" + time + "|" + description + "|" + vendor + "|" + cost;
+                        ReadWrite.DataEntry(Entry);
+                        System.out.println("Entry " + Entry + " was added to ledger");
+                        break;
 
 
                 case "P":
@@ -74,7 +76,15 @@ public class HomeScreen {
                     System.out.println("please input the vendor of purchase"); //d4
                      vendor = scanner.nextLine().trim();
                     System.out.println("please input the cost of the item/s"); //d5
-                    cost = Double.valueOf(scanner.nextLine().trim());
+                    while(Valid) {
+                        if (scanner.hasNextDouble()) {
+                            cost = Double.valueOf(scanner.nextLine().trim());
+                            break;
+                        } else {
+                            System.out.println("invalid response. please input a number");
+                            scanner.nextLine();
+                        }
+                    }
 
                     cost = (Double.valueOf(cost*-1));
                      Entry = date + "|" + time + "|" + description + "|" + vendor + "|" + cost;

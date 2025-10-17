@@ -26,13 +26,26 @@ public class ReadWrite {
             BufferedReader Reader = new BufferedReader(new FileReader("transactions.csv"));
             String line;
             while ((line = Reader.readLine()) != null) {
-                String[] data = line.split("\\|");//String[] data = { "10","Dana Wyatt","52.50","12.50" }
+                Transaction data1 = getTransaction(line);
+                allTransaction.add(data1);
+
+
+            }
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return allTransaction;
+    }
+
+    private static Transaction getTransaction(String line) {
+        String[] data = line.split("\\|");//String[] data = { "10","Dana Wyatt","52.50","12.50" }
 //                System.out.println(line);
-                LocalDate date = LocalDate.parse(data[0]);
-                LocalTime time = LocalTime.parse(data[1]);
-                String description = data[2];
-                String vendor = data[3];
-                Double price = Double.parseDouble(data[4]);
+        LocalDate date = LocalDate.parse(data[0]);
+        LocalTime time = LocalTime.parse(data[1]);
+        String description = data[2];
+        String vendor = data[3];
+        Double price = Double.parseDouble(data[4]);
 
 //                Transaction t1 = null;
 //                t1.date = LocalDate.parse(data[0]);
@@ -40,19 +53,8 @@ public class ReadWrite {
 //                t1.description = data[2];
 //                t1.vendor = data[3];
 //                t1.cost = Double.valueOf(data[4]);
-                Transaction tv1 = new Transaction(date, time, description, vendor, price);
-                allTransaction.add(tv1);
-
-
-//                Entrys Entry = new Entrys(date, time, Description, Vendor, Price);
-//                System.out.println(Entry.toString());
-//                ReaderCsV.add();
-            }
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        return allTransaction;
+        Transaction tv1 = new Transaction(date, time, description, vendor, price);
+        return tv1;
     }
 
     public static void DataEntry(String Entry) {
@@ -79,21 +81,21 @@ public class ReadWrite {
 
     public void displaydeposits(List<Transaction> list) {
 
-        for (var i = list.size()-1 ; i > 0; i--) {
-
-
-                if (list.get(i).getCost() >= 0) {
-            System.out.println(list.get(i).toString());
-        }
-    }
-}
-
-    public void displaypayments (List<Transaction> list) {
-        for (var i = list.size()-1; i < 0; i--) {
-            if (list.get(i).getCost() < 0) {
+        for (var i = list.size() - 1; i > 0; i--) {
+            if (list.get(i).getCost() >= 0) {
                 System.out.println(list.get(i).toString());
             }
         }
+    }
 
+    public void displaypayments(List<Transaction> list) {
+        for (var i = list.size() - 1; i > 0; i--) {
+            if (list.get(i).getCost() <= 0) {
+
+                System.out.println(list.get(i).toString());
+
+            }
+
+        }
     }
 }
