@@ -23,12 +23,12 @@ public class Ledger {
 
             Thread.sleep(1000);
             System.out.println("PLease input a character if you would like to");
-            System.out.println("A - Display all entries");
-            System.out.println("D - Display deposits");
-            System.out.println("P - Display payments ");
-            System.out.println("R - Look for specific information ");
+            System.out.println("        A - Display all entries");
+            System.out.println("        D - Display deposits");
+            System.out.println("        P - Display payments ");
+            System.out.println("        R - Look for specific information ");
 
-            System.out.println("X -  Exit");
+            System.out.println("        X -  Exit");
 
             String choice = scanner.nextLine().toUpperCase().trim();
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm");
@@ -58,7 +58,8 @@ public class Ledger {
                     break;
                 case "X":
                     runtime = false;
-
+                    Thread.sleep(1000);
+                    System.out.println("Returning to Homescreen");
                     break;
             }
 

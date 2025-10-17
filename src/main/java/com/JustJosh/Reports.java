@@ -37,12 +37,12 @@ public class Reports {
             Thread.sleep(1000);
             System.out.println("Opening Reports");
             System.out.println("Please input character if you would like to Display");
-            System.out.println("1 - Month to Date");
-            System.out.println("2 - Previous Month");
-            System.out.println("3 - Year to Date");
-            System.out.println("4 - Previous Year");
-            System.out.println("5 - Search by Vendor ");
-            System.out.println("X - Exit Reports");
+            System.out.println("        1 - Month to Date");
+            System.out.println("        2 - Previous Month");
+            System.out.println("        3 - Year to Date");
+            System.out.println("        4 - Previous Year");
+            System.out.println("        5 - Search by Vendor ");
+            System.out.println("        X - Exit Reports");
 
             String choice = scanner.nextLine().toUpperCase().trim();
 
@@ -73,20 +73,14 @@ public class Reports {
                 case "X":
 
                     System.out.println("Returning to Ledger");
+                    Thread.sleep(1000);
                     runtime = false;
                     break;
 
 
 
 
-                    // look at all transactions
-                    // filter by the date
-                    //use
-                    // choose all
-//                LocalDate Current_Date = LocalDate.now();
-//                System.out.println(Current_Date.getMonth());
-//                System.out.println(Current_Date.minusMonths(1));
-//                System.out.println(Current_Date);
+
             }
 
 

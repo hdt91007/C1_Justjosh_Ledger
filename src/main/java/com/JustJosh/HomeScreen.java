@@ -27,11 +27,15 @@ public class HomeScreen {
 
         while (runtime) {
             Thread.sleep(1000);
-            System.out.println("PLease input a character if you would like to");
-            System.out.println("D - Add Deposit");
-            System.out.println("P - Make Payment Debit ");
-            System.out.println("L - Ledger");
-            System.out.println("X - Exit");
+            System.out.println("""
+                            PLease input a character if you would like to
+                                        D - Add Deposit
+                                        P - Make Payment Debit
+                                        Q - Input quick entry
+                                        L - Ledger
+                                        X - Exit
+                            
+                            """);
 
             String choice = scanner.nextLine().toUpperCase().trim();
 
@@ -45,11 +49,11 @@ public class HomeScreen {
 
                         System.out.println("please input what the deposit is for");
                         String description = scanner.nextLine().trim();
-                        //consider using null values for some of the deposits or pre assignning
-
 
                         System.out.println("please input from whom the deposit is from");
                         String vendor = scanner.nextLine().trim();
+
+
                         System.out.println("please input amount depositing");
                         while(Valid) {
                             if (scanner.hasNextDouble()) {
@@ -60,6 +64,8 @@ public class HomeScreen {
                                 scanner.nextLine();
                             }
                         }
+
+
                         String Entry = date + "|" + time + "|" + description + "|" + vendor + "|" + cost;
                         ReadWrite.DataEntry(Entry);
                         System.out.println("Entry " + Entry + " was added to ledger");
@@ -75,6 +81,8 @@ public class HomeScreen {
 
                     System.out.println("please input the vendor of purchase"); //d4
                      vendor = scanner.nextLine().trim();
+
+
                     System.out.println("please input the cost of the item/s"); //d5
                     while(Valid) {
                         if (scanner.hasNextDouble()) {
@@ -86,11 +94,12 @@ public class HomeScreen {
                         }
                     }
 
-                    cost = (Double.valueOf(cost*-1));
+                    cost = Double.valueOf(cost*-1);
                      Entry = date + "|" + time + "|" + description + "|" + vendor + "|" + cost;
                     ReadWrite.DataEntry(Entry);
                     System.out.println("Entry"+ Entry +" was added to ledger");
                     break;
+
                 case "L":
                     Ledger.LedgerDisplay();
                     break;
