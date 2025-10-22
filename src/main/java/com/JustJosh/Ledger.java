@@ -1,74 +1,28 @@
 package com.JustJosh;
 
 import java.io.*;
-import java.time.format.DateTimeFormatter;
-import java.util.List;
-import java.util.Scanner;
 
 public class Ledger {
-
-
-    private static Scanner scanner = new Scanner(System.in);
-
-    public static void LedgerDisplay() throws InterruptedException, FileNotFoundException {
-
-        System.out.println("Opening the ledger page"+"\n");
-        List<Transaction> list = ReadWrite.getTransactionsFromCsv();
-
-        boolean runtime = true;
-        String date;
-        String time;
-
-        while (runtime) {
-
-            Thread.sleep(1000);
-            System.out.println("PLease input a character if you would like to");
-            System.out.println("        A - Display all entries");
-            System.out.println("        D - Display deposits");
-            System.out.println("        P - Display payments ");
-            System.out.println("        R - Look for specific information ");
-
-            System.out.println("        X -  Exit");
-
-            String choice = Ledger.scanner.nextLine().toUpperCase().trim();
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm");
-            ReadWrite readWrite = new ReadWrite();
-
-            switch (choice) {
-                case "A":
-                    readWrite.displayAll(list);
-
-
-                    break;
-                case "D":
-                    readWrite.displaydeposits(list);
-
-
-                    break;
-                case "P":
-                    readWrite.displaypayments(list);
-
-
-                    break;
-
-
-                case "R":
-                    Reports.ReportsDisplay();
-
-                    break;
-                case "X":
-                    runtime = false;
-                    Thread.sleep(1000);
-                    System.out.println("Returning to Homescreen"+"\n");
-                    break;
-                default:
-                    System.out.println("invalid response");
-                    break;
-
+    public static void LedgerDisplay() {
+        try {
+            FileReader fileReader = new FileReader("transactions.csv");
+            BufferedReader Reader = new BufferedReader(new FileReader("transactions.csv"));
+            String line;
+            while ((line = Reader.readLine()) != null) {
+                String[] data = line.split("\\|");//String[] data = { "10","Dana Wyatt","52.50","12.50" }
+                System.out.println(line);
+                String date = data[0];
+                String time = data[1];
+                String Description = data[2];
+                String Vendor = data[3];
+                Double Price = Double.parseDouble(data[4]);
+                //  System.out.println(ex);
+                System.out.println("File not found");
             }
-
-
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
-
     }
 }

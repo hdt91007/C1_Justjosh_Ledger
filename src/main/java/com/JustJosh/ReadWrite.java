@@ -86,6 +86,7 @@ public class ReadWrite {
     }
     public static void displayMonthtoDate(List<Transaction> list) {
         LocalDate firstMonth = LocalDate.now().withDayOfMonth(1);
+        //LocalDate firstMonth = LocalDate.now().getMonth();
 
         for (var i = list.size() - 1; i > 0; i--) {
             if (list.get(i).getDate().isBefore(LocalDate.now()) && (list.get(i).getDate().isAfter(firstMonth))) {

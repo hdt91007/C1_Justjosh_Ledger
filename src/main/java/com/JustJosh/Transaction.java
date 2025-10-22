@@ -56,6 +56,7 @@ public class Transaction {
     public void setCost(Double cost) {
         this.cost = cost;
     }
+    @Override
     public String toString() {
         return "\n" + date + "|" + time + "|" + description + "|" + vendor + "|" + cost ;
 
